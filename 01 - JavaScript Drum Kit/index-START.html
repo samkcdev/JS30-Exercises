@@ -65,6 +65,15 @@
         audio.play();
         keys.classList.add("playing");
       });
+
+      const allKeys = document.querySelectorAll(".key");
+      console.log(allKeys);
+      allKeys.forEach(ele => {
+        document.addEventListener("transitionend", function(e) {
+          if (e.propertyName !== "transform") return;
+          ele.classList.remove("playing");
+        });
+      });
     </script>
   </body>
 </html>
